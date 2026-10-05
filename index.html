@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — LinkedIn Comment Assistant</title>
+  <style>
+    :root {
+      --ink: #142033;
+      --paper: #f7f8fa;
+      --card: #ffffff;
+      --mute: #5c6b7c;
+      --line: #e1e6ed;
+      --cobalt: #1a5fa8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 650;
+      letter-spacing: -0.03em;
+      margin: 0 0 8px;
+    }
+    .meta {
+      color: var(--mute);
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+    h2 {
+      font-size: 18px;
+      font-weight: 650;
+      margin: 32px 0 10px;
+      letter-spacing: -0.02em;
+    }
+    p, li { font-size: 15px; }
+    a { color: var(--cobalt); }
+    .notice {
+      border: 1px solid var(--line);
+      background: var(--card);
+      padding: 14px 16px;
+      font-size: 14px;
+      color: var(--mute);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Privacy Policy</h1>
+    <p class="meta">LinkedIn Comment Assistant · Last updated: 27 September 2026</p>
+    <p class="notice">This is an unofficial third-party Chrome extension. It is not affiliated with, endorsed by, or sponsored by LinkedIn or Microsoft.</p>
+
+    <h2>Who we are</h2>
+    <p>LinkedIn Comment Assistant (“the extension”) runs entirely in your browser. This version has no vendor backend, account system, or analytics service. The developer of this extension does not operate a server that receives your LinkedIn content or API key.</p>
+
+    <h2>Data we store on your device</h2>
+    <ul>
+      <li><strong>OpenAI API key</strong> — stored only in Chrome local storage on this device. It is encrypted at rest with AES-GCM using a device-local wrapping key. The plaintext key is not written to storage after encryption or migration.</li>
+      <li><strong>Custom prompts</strong> — optional per-tone instructions you type in the popup. Stored only in Chrome local storage on this device.</li>
+    </ul>
+    <p>These values are not synced to a developer server. They stay in <code>chrome.storage.local</code> until you delete them.</p>
+
+    <h2>Data sent to OpenAI</h2>
+    <p>When you generate a comment or reply, the extension sends a request over HTTPS to <code>https://api.openai.com</code> only. That request includes:</p>
+    <ul>
+      <li>the current post text extracted from the page</li>
+      <li>author names when needed for reply context</li>
+      <li>relevant thread comments when you generate a reply</li>
+      <li>the selected tone and any custom prompt you saved for that tone</li>
+      <li>your OpenAI API key in the Authorization header (sent only to OpenAI)</li>
+    </ul>
+    <p>Nothing in this version is sent to any other vendor, tracker, or analytics endpoint. OpenAI processes the request under its own terms and privacy policy. This extension does not use your content to train models on a developer backend, because there is no such backend.</p>
+
+    <h2>Permissions</h2>
+    <ul>
+      <li><code>storage</code> — to save your encrypted API key and custom prompts locally.</li>
+      <li>Host access to <code>linkedin.com</code> — to inject the comment helper on LinkedIn pages you visit.</li>
+      <li>Host access to <code>api.openai.com</code> — to call OpenAI from the extension service worker.</li>
+    </ul>
+
+    <h2>Encryption and transit</h2>
+    <p>Your API key is encrypted at rest with AES-GCM on this device. Requests to OpenAI use HTTPS in transit. The wrapping key never leaves the browser profile on this machine.</p>
+
+    <h2>How to delete your data</h2>
+    <ul>
+      <li>Remove the extension in <code>chrome://extensions</code> — Chrome deletes the extension’s local storage.</li>
+      <li>Or clear the extension’s storage via Chrome’s site/extension data controls.</li>
+    </ul>
+    <p>After removal, this extension retains no copy of your key, prompts, or LinkedIn text, because it never uploaded them to a developer server.</p>
+
+    <h2>Chrome Web Store User Data Policy — Limited Use</h2>
+    <p>This extension complies with the Chrome Web Store User Data Policy, including the Limited Use requirements:</p>
+    <ul>
+      <li>User data is used only to provide the extension’s single purpose: drafting a comment or reply for you to review and post.</li>
+      <li>We do not sell user data.</li>
+      <li>We do not use user data for advertising, creditworthiness, or unrelated product training.</li>
+      <li>We do not transfer user data to a third party except OpenAI, and only when you click generate, as required to perform that request.</li>
+      <li>The developer does not human-review your posts or keys; this version has no operator dashboard.</li>
+    </ul>
+
+    <h2>Children</h2>
+    <p>The extension is intended for professionals using LinkedIn. It is not directed at children.</p>
+
+    <h2>Changes</h2>
+    <p>If a later version adds a backend, analytics, or additional sharing, this policy will be updated before that change ships.</p>
+  </main>
+</body>
+</html>
